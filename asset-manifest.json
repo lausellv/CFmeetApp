@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.a617e044.chunk.css",
-    "main.js": "/static/js/main.ce31a91a.chunk.js",
-    "main.js.map": "/static/js/main.ce31a91a.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.8e500e81.js",
-    "runtime-main.js.map": "/static/js/runtime-main.8e500e81.js.map",
-    "static/js/2.bf059bab.chunk.js": "/static/js/2.bf059bab.chunk.js",
-    "static/js/2.bf059bab.chunk.js.map": "/static/js/2.bf059bab.chunk.js.map",
-    "static/js/3.3154be71.chunk.js": "/static/js/3.3154be71.chunk.js",
-    "static/js/3.3154be71.chunk.js.map": "/static/js/3.3154be71.chunk.js.map",
-    "index.html": "/index.html",
-    "service-worker.js": "/service-worker.js",
-    "service-worker.js.map": "/service-worker.js.map",
-    "static/css/main.a617e044.chunk.css.map": "/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.bf059bab.chunk.js.LICENSE.txt": "/static/js/2.bf059bab.chunk.js.LICENSE.txt",
-    "static/media/logo.103b5fa1.svg": "/static/media/logo.103b5fa1.svg"
+    "main.css": "/CFmeetApp/static/css/main.a617e044.chunk.css",
+    "main.js": "/CFmeetApp/static/js/main.ae0fa31a.chunk.js",
+    "main.js.map": "/CFmeetApp/static/js/main.ae0fa31a.chunk.js.map",
+    "runtime-main.js": "/CFmeetApp/static/js/runtime-main.c190e3be.js",
+    "runtime-main.js.map": "/CFmeetApp/static/js/runtime-main.c190e3be.js.map",
+    "static/js/2.bf059bab.chunk.js": "/CFmeetApp/static/js/2.bf059bab.chunk.js",
+    "static/js/2.bf059bab.chunk.js.map": "/CFmeetApp/static/js/2.bf059bab.chunk.js.map",
+    "static/js/3.3154be71.chunk.js": "/CFmeetApp/static/js/3.3154be71.chunk.js",
+    "static/js/3.3154be71.chunk.js.map": "/CFmeetApp/static/js/3.3154be71.chunk.js.map",
+    "index.html": "/CFmeetApp/index.html",
+    "service-worker.js": "/CFmeetApp/service-worker.js",
+    "service-worker.js.map": "/CFmeetApp/service-worker.js.map",
+    "static/css/main.a617e044.chunk.css.map": "/CFmeetApp/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.bf059bab.chunk.js.LICENSE.txt": "/CFmeetApp/static/js/2.bf059bab.chunk.js.LICENSE.txt",
+    "static/media/logo.103b5fa1.svg": "/CFmeetApp/static/media/logo.103b5fa1.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.8e500e81.js",
+    "static/js/runtime-main.c190e3be.js",
     "static/js/2.bf059bab.chunk.js",
     "static/css/main.a617e044.chunk.css",
-    "static/js/main.ce31a91a.chunk.js"
+    "static/js/main.ae0fa31a.chunk.js"
   ]
 }
