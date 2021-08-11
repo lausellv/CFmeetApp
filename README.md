@@ -1,5 +1,5 @@
 # CFmeetApp
-<h1>CFmeetApp</h1>
+
 <br>
 <h1>PROJECT OVERVIEW</h1>
 <br>
