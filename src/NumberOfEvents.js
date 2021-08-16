@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-class NumberOfEvents extends Component {
+export default class NumberOfEvents extends Component {
   state = {
-    numberOfEvents: 32
+    numberOfEvents: 32  // default number of events chosen by CF
   }
 
   handleInputChanged = (event) => {
@@ -10,7 +10,7 @@ class NumberOfEvents extends Component {
     this.setState({
       numberOfEvents: value,
     });
-    this.props.updateEvents(event.target.value);
+  
 
   };
 
@@ -30,4 +30,3 @@ class NumberOfEvents extends Component {
   }
 };
 
-export default NumberOfEvents
