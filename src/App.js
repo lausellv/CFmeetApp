@@ -48,11 +48,12 @@ export default class App extends Component {
         <h1>MeetApp</h1>
            <h4>Choose your nearest city</h4>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
-        <EventList events={this.state.events} />
         <NumberOfEvents
           updateEvents={this.updateEvents}
           numberOfEvents={this.state.numberOfEvents}
         />
+        <EventList events={this.state.events} />
+        
       </div>
     );
   }
