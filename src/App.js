@@ -8,7 +8,7 @@ import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
 
 export default class App extends Component {
-  state = { events: [], locations: [], numberOfEvents: 32 };
+  state = { events: [], locations: [], numberOfEvents: 20 };
 
   componentDidMount() {
     this.mounted = true;
@@ -22,20 +22,31 @@ export default class App extends Component {
   componentWillUnmount(){
     this.mounted = false;
   }
-  updateEvents = location => {
-    getEvents().then(events => {
+
+  updateEvents = (location, eventCount) => {
+    this.mounted = true;
+    getEvents().then((events) => {
       const locationEvents =
-        location === "all" ? events : events.filter(event => event.location === location);
-      const { numberOfEvents } = this.state;
-      this.setState({
-        events: locationEvents.slice(0, numberOfEvents)
-      });
+        location === 'all' && eventCount === 0 
+        ? events
+          : location !== 'all' && eventCount === 0
+          ? events.filter((event) => event.location === location)
+          : events.slice(0, eventCount);
+      if (this.mounted) {
+        this.setState({
+          events: locationEvents,
+          numberOfEvents: eventCount,
+        });
+      }
     });
   };
+  
 
   render() {
     return (
       <div className="App">
+        <h1>MeetApp</h1>
+           <h4>Choose your nearest city</h4>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
         <EventList events={this.state.events} />
         <NumberOfEvents
