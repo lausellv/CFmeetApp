@@ -21,4 +21,8 @@ describe("<App /> component", () => {
   test("render number of events", () => {
     expect(AppWrapper.find(NumberOfEvents)).toHaveLength(1);
   });
+
+  test(" renders non-empty component without crashing", () => {
+    expect(AppWrapper.exists()).toBe(true);  /// assertions in Jest expect().
+  });
 });
