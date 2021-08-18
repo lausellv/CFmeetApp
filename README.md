@@ -33,7 +33,7 @@
 <br>
 <p><i>As a client, I would like to have the option to indicate the quantity of instances of events I would like to see. IOW decide if I want to go through list of X number of events. </i> </p>
 <p>Situation 1: If the client hasn't indicated a number, a default number of max event instances is provided.</p> 
-<p>Situation 2: A client can change the quantity of they would like to see.  </p>
+<p>Situation 2: A client can change the quantity of events they would like to see.  </p>
 <br>
 <h2>Component 4: USE THE APP WHEN OFFLINE </h2>
 <br>
