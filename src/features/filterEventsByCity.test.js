@@ -6,28 +6,23 @@ import CitySearch from "../CitySearch";
 import { extractLocations } from "../api";
 import { mockData } from "../mock-data";
 
-
 const feature = loadFeature("./src/features/filterEventsByCity.feature");
 
 defineFeature(feature, test => {
-  let AppWrapper, CitySearchWrapper;
-  const locations = extractLocations(mockData);
-
   test("When user hasn’t searched for a city, show upcoming events from all cities.", ({
     given,
     when,
     then
   }) => {
     given("user hasn’t searched for any city", () => {});
-
+    let AppWrapper;
     when("the user opens the app", () => {
       AppWrapper = mount(<App />);
     });
 
     then("the user should see the list of upcoming events.", () => {
       AppWrapper.update();
-      expect(AppWrapper.find(".event").hostNodes()).toHaveLength(mockData.length);
-      expect(AppWrapper.find(".event")).toHaveLength(mockData.length); // same result w/out hostNodes
+      expect(AppWrapper.find(".event")).toHaveLength(mockData.length);
     });
   });
 
@@ -36,6 +31,8 @@ defineFeature(feature, test => {
     when,
     then
   }) => {
+    let CitySearchWrapper;
+    const locations = extractLocations(mockData);
     given("the main page is open", () => {
       CitySearchWrapper = shallow(<CitySearch updateEvents={() => {}} locations={locations} />);
     });
@@ -53,6 +50,7 @@ defineFeature(feature, test => {
   });
 
   test("User can select a city from the suggested list", ({ given, and, when, then }) => {
+    let AppWrapper;
     given("user was typing “Berlin” in the city textbox", async () => {
       AppWrapper = await mount(<App />);
       AppWrapper.find(".city").simulate("change", { target: { value: "Berlin" } });
@@ -60,7 +58,7 @@ defineFeature(feature, test => {
 
     and("the list of suggested cities is showing", () => {
       AppWrapper.update();
-      expect(AppWrapper.find(".suggestions li")).toHaveLength(2);
+      expect(AppWrapper.find(".suggestions li").hostNodes()).toHaveLength(2);
     });
 
     when("the user selects a city (e.g., “Berlin, Germany”) from the list", () => {

@@ -24,7 +24,6 @@ export default class App extends Component {
   }
 
   updateEvents = (location, eventCount) => {
-    this.mounted = true;
     getEvents().then((events) => {
       const locationEvents =
         location === 'all' && eventCount === 0 
