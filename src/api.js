@@ -14,7 +14,7 @@ import "./nprogress.css";
 
 export const getEvents = async () => {
   NProgress.start();
-  if (window.location.href.startsWith("http://localhost/3000")) {
+  if (window.location.href.startsWith("http://localhost")) {
     NProgress.done();
     return mockData;
   }
