@@ -15,9 +15,8 @@ class Event extends Component {
     const event = this.props.event;
     return (
       <Card border="light" className="mb-4" style={{ width: '18rem' }}>
-        <Card.Body>
-          <Card.Title className="event">Event</Card.Title>
-          <Card.Text className="summary">{event.summary}</Card.Text>
+        <Card.Body className="event">
+          <Card.Title className="summary">{event.summary}</Card.Title>
           <Card.Text className="location"> {event.location}</Card.Text>
           <Card.Text className="date">{event.start.dateTime}</Card.Text>
           <Card.Text className="timeZone"> {event.start.timeZone}</Card.Text>
