@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class NumberOfEvents extends Component {
   state = {
-    numberOfEvents: 15 // default number of events chosen by CF
+    numberOfEvents: 4
   };
 
   handleInputChanged = event => {

@@ -10,7 +10,7 @@ import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
 
 export default class App extends Component {
-  state = { events: [], locations: [], numberOfEvents: 15 };
+  state = { events: [], locations: [], numberOfEvents: 0 };
 
   componentDidMount() {
     this.mounted = true;

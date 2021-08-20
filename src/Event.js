@@ -14,7 +14,7 @@ class Event extends Component {
   render() {
     const event = this.props.event;
     return (
-      <Card border="light" className="mb-4" style={{ width: '18rem' }}>
+      <Card border="light" className="mb-4" >
         <Card.Body className="event">
           <Card.Title className="summary">{event.summary}</Card.Title>
           <Card.Text className="location"> {event.location}</Card.Text>
@@ -22,12 +22,12 @@ class Event extends Component {
           <Card.Text className="timeZone"> {event.start.timeZone}</Card.Text>
           {this.state.show === true && <p className="details">{event.description}</p>}
           {this.state.show === false && (
-            <Button className="showMore" onClick={() => this.handleButton()}>
+            <Button variant="outline-dark" className="showMore" onClick={() => this.handleButton()}>
               Show more
             </Button>
           )}
           {this.state.show === true && (
-            <Button className="showLess" onClick={() => this.handleButton()}>
+            <Button variant="outline-dark" className="showLess" onClick={() => this.handleButton()}>
               Show less
             </Button>
           )}

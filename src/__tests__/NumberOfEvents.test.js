@@ -10,8 +10,8 @@ describe("<NumberOfEvents /> component", () => {
   test("render input", () => {
     expect(NumberOfEventsWrapper.find(".eventNum")).toHaveLength(1);
   });
-  test("render 32 events by default", () => {
-    expect(NumberOfEventsWrapper.find(".eventNum").prop("value")).toEqual(15);
+  test("render 15 events by default", () => {
+    expect(NumberOfEventsWrapper.find(".eventNum").prop("value")).toEqual(4);  //we only have 4 in our mochData
   });
   test("renders input correctly", () => {
     const numberOfEvents = NumberOfEventsWrapper.state("numberOfEvents");
