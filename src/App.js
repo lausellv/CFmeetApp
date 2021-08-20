@@ -57,7 +57,7 @@ export default class App extends Component {
           />
           <Row>
             <EventList events={this.state.events} />
-          </Row>
+            </Row>
         </div>
       </Container>
     );
