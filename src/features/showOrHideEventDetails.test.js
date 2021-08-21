@@ -39,7 +39,7 @@ AppWrapper = mount(<App />);
   test("User can find out more details about an event", ({ given, when, then }) => {
     given("events have loaded", () => {
       
-      EventWrapper = mount(<Event event={mockData[0]} />);
+      EventWrapper = shallow(<Event event={mockData[0]} />);
     });
 
     when("user clicks on an event", () => {

@@ -28,7 +28,7 @@ export default class NumberOfEvents extends Component {
 
   render() {
     return (
-      <div className="NumberOfEvents">
+      <div className="numberOfEvents">
         <p>Events Displayed</p>
         <input
           type="number"

@@ -2,7 +2,7 @@ import React from "react";
 import { loadFeature, defineFeature } from "jest-cucumber";
 import { mount } from "enzyme";
 import App from "../App";
-import { mockData } from "../mock-data";
+
 
 const feature = loadFeature("./src/features/numberOfEvents.feature");
 
@@ -21,10 +21,7 @@ defineFeature(feature, test => {
     when("user opens event list", () => {});
 
     then("event default number should be displayed.", () => {
-      AppWrapper.update();
-      expect(AppWrapper.find(".event")).toHaveLength(mockData.length);
-
-      AppWrapper.unmount();
+      expect(AppWrapper.state("numberOfEvents")).toBe(4);
     });
   });
 
@@ -40,7 +37,7 @@ defineFeature(feature, test => {
 
     then("online the number of events specified by the user is shown.", () => {
       AppWrapper.update();
-      expect(AppWrapper.find(".event")).toHaveLength(1);
+      expect(AppWrapper.state("numberOfEvents")).toHaveLength(1);
     });
   });
 });
