@@ -1,46 +1,60 @@
 import React from "react";
+// import Alert from "react-bootstrap/Alert";
 
 export default class CitySearch extends React.Component {
   state = {
     locations: this.props.locations,
     query: "",
     suggestions: [],
-    showSuggestions: false
+    showSuggestions: false,
+    infoText: ""
   };
 
-  handleInputChanged = event => {
-    const value = event.target.value;
+  handleInputChanged = e => {
+    const value = e.target.value;
+    this.setState({ showSuggestions: true });
     const suggestions = this.props.locations.filter(location => {
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
     });
-    this.setState({
-      query: value,
-      suggestions
-    });
+    if (suggestions.length === 0) {
+      this.setState({
+        query: value,
+        infoText: "Cannot find location."
+      });
+    } else {
+      this.setState({
+        query: value,
+        suggestions,
+        infoText: ""
+      });
+    }
   };
 
   handleItemClicked = suggestion => {
     this.setState({
       query: suggestion,
-      suggestions: [], 
+      suggestions: [],
       showSuggestions: false
     });
 
-    this.props.updateEvents(suggestion);
+    this.props.updateEvents(suggestion, this.props.numberOfEvents);
   };
 
   render() {
     return (
       <div className="CitySearch">
-        CitySearch
+        {/* <Alert text={this.state.infoText} /> */}
+        <label>Select a City</label>
         <input
           type="text"
           className="city"
-          value={this.state.query}
+          value={this.state.query === "all" ? "All Cities" : this.state.query}
           onChange={this.handleInputChanged}
-          onFocus ={()=>{this.setState({showSuggestions:true})}}
+          onFocus={() => {
+            this.setState({ showSuggestions: true });
+          }}
         />
-        <ul className="suggestions" style={this.state.showSuggestions ? {} : { display: 'none' }}>
+        <ul className="suggestions" style={this.state.showSuggestions ? {} : { display: "none" }}>
           {this.state.suggestions.map(suggestion => (
             <li key={suggestion} onClick={() => this.handleItemClicked(suggestion)}>
               {suggestion}

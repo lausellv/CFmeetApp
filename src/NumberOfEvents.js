@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class NumberOfEvents extends Component {
   state = {
-    numberOfEvents: 4
+    numberOfEvents: this.props.numberOfEvents,
   };
 
   handleInputChanged = event => {
@@ -10,12 +10,10 @@ export default class NumberOfEvents extends Component {
     if (value < 1) {
       return this.setState({
         ErrorText: "between 1 and 15 only",
-        numberOfEvents: ""
       });
     } else if (value > 15) {
       return this.setState({
         ErrorText: "between 1 and 15 only",
-        numberOfEvents: ""
       });
     } else {
       this.setState({

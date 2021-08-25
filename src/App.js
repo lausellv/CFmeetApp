@@ -7,14 +7,18 @@ import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
 
 export default class App extends Component {
-  state = { events: [], locations: [], numberOfEvents: 4 };
+  state = { events: [], locations: [], numberOfEvents: 4, selectedLocation: "all" };
 
   componentDidMount() {
+    const { numberOfEvents } = this.state;
     this.mounted = true;
 
     getEvents().then(events => {
       if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
+        this.setState({
+          events: events.slice(0, numberOfEvents),
+          locations: extractLocations(events)
+        });
       }
     });
   }
@@ -23,37 +27,31 @@ export default class App extends Component {
     this.mounted = false;
   }
 
-
-
-  updateEvents = (location, eventCount) => {
-    if (eventCount && eventCount > 0 && eventCount < 16) {
-      /*console.log(eventCount)*/
+  updateEvents = (location, numberOfEvents) => {
+    getEvents().then(events => {
+      const locationEvents = (location === 'all'  || !location) ? events : events.filter(event => event.location === location);
       this.setState({
-        numberOfEvents: eventCount
-      });
-    }
-    this.setState({
-      selectedLocation: location
-    });
-
-    getEvents().then((events) => {
-      const locationEvents = (location === 'all') ?
-        events.slice(0, this.state.numberOfEvents) :
-        events.filter((event) => event.location === location).slice(0, this.state.numberOfEvents);
-      this.setState({
-        events: locationEvents
+        selectedLocation: location,
+        events: locationEvents.slice(0, numberOfEvents),
+        numberOfEvents: numberOfEvents,
       });
     });
   }
 
+  updateCount = newCount => {
+    const { selectedLocation } = this.state;
+    this.updateEvents(selectedLocation, newCount);
+  }
 
   render() {
+
     return (
+      
       <div className="App ui container" style={{ marginTop: "10px" }}>
         <h1>MeetApp</h1>
         <h4>Choose your nearest city</h4>
 
-        <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
+        <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} numberOfEvents={this.state.numberOfEvents} />
         <NumberOfEvents
           updateEvents={this.updateEvents}
           numberOfEvents={this.state.numberOfEvents}
