@@ -20,7 +20,7 @@ serviceWorkerRegistration.register();
 
 atatus.config('a47d120757a44d4f8b8d329e792bb253').install();
 
-atatus.notify(new Error('Test Atatus Setup'));
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
