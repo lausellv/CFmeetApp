@@ -1,4 +1,5 @@
 import React from "react";
+import { InfoAlert } from "./Alert";
 // import Alert from "react-bootstrap/Alert";
 
 export default class CitySearch extends React.Component {
@@ -19,7 +20,7 @@ export default class CitySearch extends React.Component {
     if (suggestions.length === 0) {
       this.setState({
         query: value,
-        infoText: "Cannot find location."
+        infoText: "Cannot find location. Please try another location."
       });
     } else {
       this.setState({
@@ -43,7 +44,7 @@ export default class CitySearch extends React.Component {
   render() {
     return (
       <div className="CitySearch">
-        {/* <Alert text={this.state.infoText} /> */}
+        <InfoAlert text={this.state.infoText} />
         <label>Select a City</label>
         <input
           type="text"
