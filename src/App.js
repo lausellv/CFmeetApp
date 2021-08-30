@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import { getEvents, extractLocations } from "./api";
+import { getEvents, extractLocations, checkToken, getAccessToken } from "./api";
 
 import EventList from "./EventList";
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
 import { offLineAlert } from "./Alert";
+import WelcomeScreen from "./WelcomeScreen";
 
 export default class App extends Component {
   state = {
@@ -13,22 +14,34 @@ export default class App extends Component {
     locations: [],
     numberOfEvents: 15,
     selectedLocation: "all",
-    offLineText: ""
+    offLineText: "",
+    showWelcomeScreen: undefined
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     const { numberOfEvents } = this.state;
     this.mounted = true;
+    const accessToken = localStorage.getItem("access_token");
+    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get("code");
+    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+    if ((code || isTokenValid) && this.mounted) {
+      getEvents().then(events => {
+        if (this.mounted) {
+          this.setState({ events, locations: extractLocations(events) });
+        }
+      });
+    }
 
-     // Enable alert for the user when the app has no internet connection.
-     if (!navigator.onLine) {
+    // Enable alert for the user when the app has no internet connection.
+    if (!navigator.onLine) {
       this.setState({
-        offLineText:
-          'You are currently using the app offline. Events may be out of date.',
+        offLineText: "You are currently using the app offline. Events may be out of date."
       });
     } else {
       this.setState({
-        offLineText: '',
+        offLineText: ""
       });
     }
 
@@ -66,13 +79,15 @@ export default class App extends Component {
   };
 
   render() {
+    if (this.state.showWelcomeScreen === undefined) return <div className="App" />;
+
     return (
       <div className="App ui container" style={{ marginTop: "10px" }}>
         <h1>MeetApp</h1>
         <h4>Choose your nearest city</h4>
 
-           {/* Alert to notify the user when using the app offline. */}
-           <offLineAlert text={this.state.offLineText} />
+        {/* Alert to notify the user when using the app offline. */}
+        <offLineAlert text={this.state.offLineText} />
 
         <CitySearch
           locations={this.state.locations}
@@ -85,6 +100,12 @@ export default class App extends Component {
         />
 
         <EventList events={this.state.events} />
+        <WelcomeScreen
+          showWelcomeScreen={this.state.showWelcomeScreen}
+          getAccessToken={() => {
+            getAccessToken();
+          }}
+        />
       </div>
     );
   }
