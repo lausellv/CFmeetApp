@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/CFmeetApp/static/css/main.a7e35c80.chunk.css",
-    "main.js": "/CFmeetApp/static/js/main.851ce1d2.chunk.js",
-    "main.js.map": "/CFmeetApp/static/js/main.851ce1d2.chunk.js.map",
+    "main.js": "/CFmeetApp/static/js/main.d7031264.chunk.js",
+    "main.js.map": "/CFmeetApp/static/js/main.d7031264.chunk.js.map",
     "runtime-main.js": "/CFmeetApp/static/js/runtime-main.7abc8850.js",
     "runtime-main.js.map": "/CFmeetApp/static/js/runtime-main.7abc8850.js.map",
     "static/js/2.4ba1f908.chunk.js": "/CFmeetApp/static/js/2.4ba1f908.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.7abc8850.js",
     "static/js/2.4ba1f908.chunk.js",
     "static/css/main.a7e35c80.chunk.css",
-    "static/js/main.851ce1d2.chunk.js"
+    "static/js/main.d7031264.chunk.js"
   ]
 }
