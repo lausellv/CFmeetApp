@@ -7,6 +7,7 @@ import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
 import { offLineAlert } from "./Alert";
 import WelcomeScreen from "./WelcomeScreen";
+import EventGenre from './EventGenre';
 import {
   ScatterChart,
   Scatter,
@@ -98,6 +99,7 @@ export default class App extends Component {
   };
 
   render() {
+ 
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />;
 
     return (
@@ -118,6 +120,8 @@ export default class App extends Component {
           numberOfEvents={this.state.numberOfEvents}
         />
         <h4>Events in each city</h4>
+        <div className="data-vis-wrapper">
+          <EventGenre events={this.state.events} />
         <ResponsiveContainer height={400}>
           <ScatterChart
             margin={{
@@ -134,6 +138,7 @@ export default class App extends Component {
             <Scatter data={this.getData()} fill="#5587f2" />
           </ScatterChart>
         </ResponsiveContainer>
+        </div>
 
         <EventList events={this.state.events} />
         <WelcomeScreen
