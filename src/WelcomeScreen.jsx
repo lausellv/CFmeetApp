@@ -3,7 +3,8 @@ import "./WelcomeScreen.css";
 function WelcomeScreen(props) {
   return props.showWelcomeScreen ? (
     <div className="WelcomeScreen">
-      <h1>Welcome to the Meet app</h1>
+      <h1>Welcome to the Meet app</h1></br>
+      <h4>A place for Developers to network with other Developers!</h4> 
       <h4>Log in to see upcoming events around the world for full-stack developers</h4>
       <div className="button_cont" align="center">
         <div class="google-btn">
@@ -28,7 +29,7 @@ o.svg"
       </div>
       <a href="https://lausellv.github.io/CFmeetApp/privacy.html" rel="nofollow noopener">
         Privacy policy
-      </a>
+      </a> |  <a href="https://github.com/lausellv/CFmeetApp.git">See on GitHub</a>
     </div>
   ) : null;
 }
