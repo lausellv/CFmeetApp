@@ -1,20 +1,14 @@
 # CFmeetApp
 
-<br>
-<h1>PROJECT OVERVIEW</h1>
-<br>
-<p>To assemble a server-less, progressive web application (PWA) with React utilizing a test-driven development (TDD) procedure. The application utilizes the Google Calendar API to fetch events.</p> 
-<hr />
-<br>
-<h1>TECH SPECS</h1>
-<br >
-<p>● The app must be a React application. ● The app must be built using the TDD technique. ● The app must use the Google Calendar API and OAuth2 authentication flow. Page 2 ● The app must use serverless functions (AWS lambda is preferred) for the authorization server instead of using a traditional server. ● The app’s code must be hosted in a Git repository on GitHub. ● The app must work on the latest versions of Chrome, Firefox, Safari, Edge, and Opera, as well as on IE11. ● The app must display well on all screen sizes (including mobile and tablet) widths of 1920px and 320px. ● The app must pass Lighthouse’s PWA checklist. ● The app must work offline or in slow network conditions with the help of a service worker. ● Users may be able to install the app on desktop and add the app to their home screen on mobile. ● The app must be deployed on GitHub Pages. ● The API call must use React axios and async/await. ● The app must implement an alert system using an OOP approach to show information to the user. ● The app must make use of data visualization (recharts preferred). ● The app must be covered by tests with a coverage rate >= 90%. ● The app must be monitored using an online monitoring tool.</p>
 
-<hr />
-<h1>USER STORIES</h1>
-<br>
+# Goal
+
+ To assemble a server-less, progressive web application (PWA) with React utilizing a test-driven development (TDD) procedure. The application utilizes the Google Calendar API to fetch events. 
+
+# USER STORIES
+
 <h2>Component 1: FILTER EVENTS BY CITY</h2>
-<br>
+
 <p><i>As a client, I might want to have the option to search events by city so I can see the rundown of events that happen around there.</i> </p>
 <br>
 <p>Situation 1: When client hasn't searched for a city, show upcoming events from all cities. Given client hasn't looked for any city, when the client opens the application, he should see a rundown of every single future event.</p>
@@ -47,3 +41,54 @@
 <p><i>As a client, I might want to have the option to see a diagram showing the coming events in every city with the goal that I know what events correspond to which city. </i> </p>
 <br>
 <p>Situation 1: Show a graph with the quantity of coming events in every city. Allow client to search for events in general. When client taps on a guide, show a diagram with the quantity of coming events in every city.</p>
+
+# Stack, Dependencies, Environment, Hosting
+
+### Stack
+ - React
+### Dependencies
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "atatus-spa": "^4.3.2",
+    "axios": "^0.21.1",
+    "bootstrap": "^5.1.0",
+    "nprogress": "^0.2.0",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.0.0-beta.5",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "recharts": "^2.1.2",
+    "web-vitals": "^0.2.4",
+    "workbox-background-sync": "^5.1.4",
+    "workbox-broadcast-update": "^5.1.4",
+    "workbox-cacheable-response": "^5.1.4",
+    "workbox-core": "^5.1.4",
+    "workbox-expiration": "^5.1.4",
+    "workbox-google-analytics": "^5.1.4",
+    "workbox-navigation-preload": "^5.1.4",
+    "workbox-precaching": "^5.1.4",
+    "workbox-range-requests": "^5.1.4",
+    "workbox-routing": "^5.1.4",
+    "workbox-strategies": "^5.1.4",
+    "workbox-streams": "^5.1.4"
+
+### devDependencies
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
+    "enzyme": "^3.11.0",
+    "gh-pages": "^3.2.3",
+    "jest-cucumber": "^3.0.1",
+    "puppeteer": "^10.2.0"
+
+### Environment
+  **VS Code**  v1.61.2
+    **Extensions:** 
+     **ESLint: Ver v2.2.2:**
+  - npm v7.24.1
+  - node v14.15.4
+
+### Hosting
+ https://lausellv.github.io/CFmeetApp
+
+# Project Status
+This PWA(Progressive Web App) is complete!
